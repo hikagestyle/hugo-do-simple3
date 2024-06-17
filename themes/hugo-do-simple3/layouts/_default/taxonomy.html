@@ -1,0 +1,22 @@
+{{ define "title" }}  <title>{{ .Title| lower }}: {{ .Paginator.PageNumber }}ページ目 - {{ .Site.Title }}</title>{{ end }}
+
+{{ define "main" }}
+
+<h1 class="title">{{ .Title| lower }}: {{ .Paginator.PageNumber }}ページ目</h1>
+
+{{ $tagName := .Name }}
+{{ with index $.Site.Taxonomies.tags $tagName }}
+<div class="small">{{ $tagName }}: 全 {{ len .Pages }} 件</div>
+{{ end }}
+
+<ul class="list-none p0">
+{{ range (.Paginator).Pages -}}
+	<li><span class="date">{{ dateFormat "2006-01-02" .PublishDate }}</span> <a href="{{ .Permalink }}">{{ .Title }}</a></li>
+{{ end -}}
+</ul>
+
+<p class="meta">{{ .Paginator.PageNumber }}ページ目 / 全{{ .Paginator.TotalPages }}ページ</p>
+
+	{{ partial "pagination.html" . }}
+
+{{ end }}
