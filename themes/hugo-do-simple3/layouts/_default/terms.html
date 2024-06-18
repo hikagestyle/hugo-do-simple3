@@ -4,12 +4,12 @@
 
 <h1 class="title">{{ .Title | lower}}</h1>
 
-{{ $tags := .Site.Taxonomies.tags }}
+{{ $tags := .Site.Taxonomies.tags -}}
 <div class="small">全 {{ len $tags }} 件</div>
 
 <ul>
 {{ range .Data.Terms.Alphabetical -}}
-	<li><a href="{{ .Page.Permalink }}">{{ .Page.Title| lower }}</a> ({{ .Count }})</li>
+	<li><a href="{{ .Page.Permalink }}">{{ .Page.Title | lower }}</a> ({{ .Count }})</li>
 {{ end -}}
 </ul>
 
