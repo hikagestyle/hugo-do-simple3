@@ -5,7 +5,7 @@
 <h1 class="title">{{ .Title | lower}}</h1>
 
 {{ $tags := .Site.Taxonomies.tags -}}
-<div class="small">全 {{ len $tags }} 件</div>
+<div class="small">{{ len $tags }} tags in total</div>
 
 <ul>
 {{ range .Data.Terms.Alphabetical -}}

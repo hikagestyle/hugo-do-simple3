@@ -8,20 +8,22 @@
 {{ .Content }}
 
 {{- if .Params.tags }}
-	<div class="post-tags">
+<div class="post-tags">
 {{- range .Params.tags }}
 {{- $href := print (absURL "tags/") (urlize .) }}
 <a href="{{ $href }}">{{ . }}</a>
 {{- end }}
-	</div>{{ printf "<!-- /.post-tags -->" | safeHTML }}
+</div>{{ printf "<!-- /.post-tags -->" | safeHTML }}
 {{- end }}
 
-	<div class="post-nav">
-{{- with .PrevInSection }}
+{{ if or .Prev .Next -}}
+<div class="post-nav">
+{{ with .PrevInSection -}}
 <div class="prev-post">Prev: <a class="prev" href="{{.Permalink}}">{{ .Title }}</a></div>
-{{- end }}
-{{- with .NextInSection }}
+{{ end -}}
+{{ with .NextInSection -}}
 <div class="next-post">Next: <a class="next" href="{{.Permalink}}">{{ .Title }}</a></div>
-{{- end }}
-	</div>{{ printf "<!-- /.post-nav -->" | safeHTML }}
+{{ end -}}
+</div>{{ printf "<!-- /.post-nav -->" | safeHTML }}
+{{ end -}}
 {{ end }}

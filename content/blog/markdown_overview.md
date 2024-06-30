@@ -66,10 +66,10 @@ fn main() {
 
 ## An image
 
-![a cat](https://placekitten.com/200/300?image=4 "A cat photo taken by Energetic Spirit (CC BY-SA 2.0)")
+![sample](../../images/sample.jpg "sample (CC BY-SA 2.0)")
 
 ```
-![a cat](https://placekitten.com/200/300?image=4 "A cat photo taken by Energetic Spirit (CC BY-SA 2.0)")
+![sample](../../images/sample.jpg "sample (CC BY-SA 2.0)")
 ```
 
 
