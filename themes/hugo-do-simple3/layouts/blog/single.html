@@ -16,7 +16,7 @@
 </div>{{ printf "<!-- /.post-tags -->" | safeHTML }}
 {{- end }}
 
-{{ if or .Prev .Next -}}
+{{ if or .PrevInSection .NextInSection -}}
 <div class="post-nav">
 {{ with .PrevInSection -}}
 <div class="prev-post">Prev: <a class="prev" href="{{.Permalink}}">{{ .Title }}</a></div>
